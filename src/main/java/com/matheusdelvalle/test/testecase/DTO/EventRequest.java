@@ -5,7 +5,7 @@ import com.matheusdelvalle.test.testecase.emums.EventEnum;
 public class EventRequest {
 
     private EventEnum type;
-    private long amount;
+    private int amount;
     private String destination;
     private String origin;
     
@@ -21,10 +21,10 @@ public class EventRequest {
     public void setDestination(String destination) {
         this.destination = destination;
     }
-    public long getAmount() {
+    public int getAmount() {
         return amount;
     }
-    public void setAmount(long amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
     public EventEnum getType() {

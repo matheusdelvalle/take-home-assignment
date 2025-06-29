@@ -1,7 +1,9 @@
 package com.matheusdelvalle.test.testecase.DTO;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.matheusdelvalle.test.testecase.models.Account;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EventResponse {
     
     private Account origin;

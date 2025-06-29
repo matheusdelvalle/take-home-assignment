@@ -3,20 +3,20 @@ package com.matheusdelvalle.test.testecase.models;
 public class Account {
 
     private String id;
-    private double balance;
+    private int balance;
 
     public Account() {}
 
-    public Account(String id, double balance) {
+    public Account(String id, int balance) {
         this.id = id;
         this.balance = balance;
     }
 
-    public double getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(int balance) {
         this.balance = balance;
     }
 

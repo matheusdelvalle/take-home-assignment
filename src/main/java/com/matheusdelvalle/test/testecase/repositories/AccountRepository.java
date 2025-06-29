@@ -20,7 +20,7 @@ public class AccountRepository implements RepositoryInterface {
         if(balance == null)
             return null;
 
-        Account account = new Account(id, Double.parseDouble(balance));
+        Account account = new Account(id, Integer.valueOf(balance));
 
         return account;
     }
@@ -41,7 +41,7 @@ public class AccountRepository implements RepositoryInterface {
         
         inMemoryStore.put(id, balance);
 
-        return new Account(id, Double.parseDouble(balance));
+        return new Account(id, Integer.valueOf(balance));
     }
 
     @Override

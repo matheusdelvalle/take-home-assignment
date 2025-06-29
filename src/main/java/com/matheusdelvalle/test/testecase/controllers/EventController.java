@@ -1,6 +1,7 @@
 package com.matheusdelvalle.test.testecase.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,14 +18,13 @@ public class EventController {
     private AccountService accountService;
 
 	@PostMapping("/event")
-	public ResponseEntity<EventResponse> event(@RequestBody EventRequest eventRequest) {
-		
-		
+	public ResponseEntity<Object> event(@RequestBody EventRequest eventRequest) {
+				
 		EventResponse response = accountService.IncomingEvent(eventRequest);
 
 		return ResponseEntity
-			.status(response != null ? 201 : 404) // or HttpStatus.OK
-			.body(response);
+			.status(response != null ? HttpStatus.CREATED : HttpStatus.NOT_FOUND) // or HttpStatus.OK
+			.body(response != null ? response : "0");
 	}
     
 }
