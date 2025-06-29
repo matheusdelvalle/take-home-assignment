@@ -45,6 +45,26 @@ public class AccountService {
 
     public EventResponse Transfer(EventRequest eventRequest){
 
+        Account origin = accountRepository.getById(eventRequest.getOrigin());
+        Account destination = accountRepository.getById(eventRequest.getDestination());
+
+        if (origin == null || destination == null){
+            return null;
+        }
+
+        double newOriginBalance = origin.getBalance() - eventRequest.getAmount();
+        double newDestinationBalance = destination.getBalance() + eventRequest.getAmount();
+
+        origin.setBalance(newOriginBalance);
+        destination.setBalance(newDestinationBalance);
+
+        Account updatedOrigin = accountRepository.updateAccount(origin);
+        Account updatedDestination = accountRepository.updateAccount(destination);
+
+        if (updatedOrigin != null && updatedDestination != null) {
+            return new EventResponse(updatedOrigin, updatedDestination);
+        }
+
         return null;
     }
 

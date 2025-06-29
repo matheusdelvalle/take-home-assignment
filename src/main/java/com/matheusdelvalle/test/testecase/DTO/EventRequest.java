@@ -7,9 +7,16 @@ public class EventRequest {
     // {"type":"deposit", "destination":"100", "amount":10}
 
     private EventEnum type;
-    private String destination;
     private long amount;
+    private String destination;
+    private String origin;
     
+    public String getOrigin() {
+        return origin;
+    }
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
     public String getDestination() {
         return destination;
     }
