@@ -50,6 +50,22 @@ public class AccountService {
 
     public EventResponse Withdraw(EventRequest eventRequest){
 
+        Account account = accountRepository.getById(eventRequest.getDestination());
+
+        if (account == null){
+            return null;
+        }
+
+        double newBalance = account.getBalance() - eventRequest.getAmount();
+        account.setBalance(newBalance);
+
+        Account updatedAccount = accountRepository.updateAccount(account);
+        
+        if (updatedAccount != null) {
+
+            return new EventResponse(null, updatedAccount);
+        }
+
         return null;
     }
 
@@ -70,10 +86,8 @@ public class AccountService {
         Account updatedAccount = accountRepository.updateAccount(account);
         
         if (updatedAccount != null) {
-            // Se a atualização falhar, retornar uma mensagem de erro
             return new EventResponse(null, updatedAccount);
         }
-        //remover e atualizar o saldo da lista
         return new EventResponse();
 
     }
