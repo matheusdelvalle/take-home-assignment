@@ -13,7 +13,6 @@ import com.matheusdelvalle.test.testecase.services.AccountService;
 @RestController
 public class EventController {
 
- 	
 	@Autowired
     private AccountService accountService;
 

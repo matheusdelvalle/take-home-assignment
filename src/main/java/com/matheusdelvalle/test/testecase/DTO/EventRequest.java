@@ -4,8 +4,6 @@ import com.matheusdelvalle.test.testecase.emums.EventEnum;
 
 public class EventRequest {
 
-    // {"type":"deposit", "destination":"100", "amount":10}
-
     private EventEnum type;
     private long amount;
     private String destination;

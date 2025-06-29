@@ -4,8 +4,6 @@ import com.matheusdelvalle.test.testecase.models.Account;
 
 public class EventResponse {
     
-// {"origin": {"id":"100", "balance":0}, "destination": {"id":"300", "balance":15}}
-
     private Account origin;
     private Account destination;
 

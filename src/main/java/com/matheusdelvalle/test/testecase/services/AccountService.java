@@ -17,9 +17,7 @@ public class AccountService {
 
 
     public void resetDataBase(){
-
         accountRepository.reset();
-
     };
 
     public EventResponse IncomingEvent(EventRequest eventRequest){
