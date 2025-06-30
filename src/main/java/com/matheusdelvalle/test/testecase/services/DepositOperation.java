@@ -36,7 +36,7 @@ public class DepositOperation implements AccountOperation {
 
     @Override
     public Operation getOperation() {
-        return Operation.deposit;
+        return Operation.DEPOSIT;
     }
     
 }

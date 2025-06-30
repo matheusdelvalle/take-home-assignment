@@ -1,8 +1,14 @@
 package com.matheusdelvalle.test.testecase.emums;
 
-public enum Operation {
-    deposit,
-    withdraw,
-    transfer;
+import com.fasterxml.jackson.annotation.JsonValue;
 
+public enum Operation {
+    DEPOSIT,
+    WITHDRAW,
+    TRANSFER;
+
+    @JsonValue
+    public String toLower() {
+        return this.name().toLowerCase();
+    }
 }

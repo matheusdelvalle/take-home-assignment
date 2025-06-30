@@ -12,7 +12,6 @@ import com.matheusdelvalle.test.testecase.repositories.AccountMemoryRepository;
 @Component
 public class TransferOperation implements AccountOperation {
 
-
     @Autowired 
     private AccountMemoryRepository accountRepository;
 
@@ -47,7 +46,7 @@ public class TransferOperation implements AccountOperation {
 
     @Override
     public Operation getOperation() {
-        return Operation.transfer;
+        return Operation.TRANSFER;
     }
     
 }

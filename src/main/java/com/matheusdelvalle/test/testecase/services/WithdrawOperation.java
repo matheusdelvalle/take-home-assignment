@@ -39,6 +39,6 @@ public class WithdrawOperation implements AccountOperation {
 
     @Override
     public Operation getOperation() {
-        return Operation.withdraw;
+        return Operation.WITHDRAW;
     }
 }

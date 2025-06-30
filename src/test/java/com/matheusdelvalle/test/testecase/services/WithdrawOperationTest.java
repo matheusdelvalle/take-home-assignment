@@ -103,6 +103,6 @@ class WithdrawOperationTest {
 
     @Test
     void testGetOperation_ShouldReturnWithdrawEnum() {
-        assertEquals(Operation.withdraw, withdrawOperation.getOperation());
+        assertEquals(Operation.WITHDRAW, withdrawOperation.getOperation());
     }
 }

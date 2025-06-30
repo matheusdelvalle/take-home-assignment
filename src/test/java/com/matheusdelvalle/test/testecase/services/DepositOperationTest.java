@@ -88,6 +88,6 @@ class DepositOperationTest {
 
     @Test
     void getOperation_shouldReturnDepositEnum() {
-        assertEquals(Operation.deposit, depositOperation.getOperation());
+        assertEquals(Operation.DEPOSIT, depositOperation.getOperation());
     }
 }

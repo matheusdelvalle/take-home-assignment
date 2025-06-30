@@ -129,6 +129,6 @@ class TransferOperationTest {
 
     @Test
     void testGetOperation_ReturnsTransferEnum() {
-        assertEquals(Operation.transfer, transferOperation.getOperation());
+        assertEquals(Operation.TRANSFER, transferOperation.getOperation());
     }
 }
