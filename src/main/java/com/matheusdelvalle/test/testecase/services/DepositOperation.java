@@ -17,22 +17,34 @@ public class DepositOperation implements AccountOperation {
 
     @Override
     public EventResponse execute(EventRequest eventRequest) {
+
        Account account = accountRepository.getById(eventRequest.getDestination());
 
         if (account == null){
-            
-            account = accountRepository.addNewAccount(eventRequest.getDestination(), String.valueOf(eventRequest.getAmount()));
-
-            return new EventResponse(null, account );
+            return createNewAccountAndDeposit(eventRequest);
         }
+        
+        return depositIntoExistingAccount(eventRequest, account);
+    }
 
+    private EventResponse depositIntoExistingAccount(EventRequest eventRequest, Account account){
         int newBalance = account.getBalance() + eventRequest.getAmount();
         account.setBalance(newBalance);
 
         Account updatedAccount = accountRepository.updateAccount(account);
         
-        return new EventResponse(null, updatedAccount);
+        return  EventResponse.EventDepositResponse(updatedAccount);
     }
+
+    private EventResponse createNewAccountAndDeposit(EventRequest eventRequest){
+
+        Account account = accountRepository.addNewAccount(eventRequest.getDestination(), String.valueOf(eventRequest.getAmount()));
+
+        return  EventResponse.EventDepositResponse(account);
+
+    }
+
+
 
     @Override
     public Operation getOperation() {

@@ -14,6 +14,14 @@ public class EventResponse {
         this.destination = destination;
     }
 
+    public static EventResponse EventWithdrawResponse(Account origin) {
+        return new EventResponse(origin, null);
+    }
+
+    public static EventResponse EventDepositResponse(Account destination) {
+        return new EventResponse(null, destination);
+    }
+
     public EventResponse() {
         this.origin = null;
         this.destination = null;

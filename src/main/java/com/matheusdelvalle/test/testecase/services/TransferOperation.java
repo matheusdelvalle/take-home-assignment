@@ -37,11 +37,8 @@ public class TransferOperation implements AccountOperation {
         Account updatedOrigin = accountRepository.updateAccount(origin);
         Account updatedDestination = accountRepository.updateAccount(destination);
 
-        if (updatedOrigin != null && updatedDestination != null) {
-            return new EventResponse(updatedOrigin, updatedDestination);
-        }
-
-        return null;
+        return new EventResponse(updatedOrigin, updatedDestination);
+        
     }
 
     @Override

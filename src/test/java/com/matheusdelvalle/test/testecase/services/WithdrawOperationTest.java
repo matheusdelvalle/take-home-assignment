@@ -80,28 +80,6 @@ class WithdrawOperationTest {
     }
 
     @Test
-    void testExecute_UpdateAccountReturnsNull_ShouldReturnNull() {
-        String originId = "123";
-        int initialBalance = 1000;
-        int withdrawAmount = 500;
-
-        Account account = new Account();
-        account.setId(originId);
-        account.setBalance(initialBalance);
-
-        EventRequest request = mock(EventRequest.class);
-        when(request.getOrigin()).thenReturn(originId);
-        when(request.getAmount()).thenReturn(withdrawAmount);
-
-        when(accountRepository.getById(originId)).thenReturn(account);
-        when(accountRepository.updateAccount(any(Account.class))).thenReturn(null);
-
-        EventResponse response = withdrawOperation.execute(request);
-
-        assertNull(response);
-    }
-
-    @Test
     void testGetOperation_ShouldReturnWithdrawEnum() {
         assertEquals(Operation.WITHDRAW, withdrawOperation.getOperation());
     }

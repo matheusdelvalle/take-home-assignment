@@ -29,12 +29,7 @@ public class WithdrawOperation implements AccountOperation {
 
         Account updatedAccount = accountRepository.updateAccount(account);
         
-        if (updatedAccount != null) {
-
-            return new EventResponse(updatedAccount,null);
-        }
-
-        return null;
+        return EventResponse.EventWithdrawResponse(updatedAccount);
     }
 
     @Override

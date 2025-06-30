@@ -104,30 +104,6 @@ class TransferOperationTest {
     }
 
     @Test
-    void testExecute_UpdateAccountFails() {
-        String originId = "1";
-        String destinationId = "2";
-        int amount = 10;
-
-        Account origin = new Account(originId, 50);
-        Account destination = new Account(destinationId, 10);
-
-        EventRequest request = new EventRequest();
-        request.setOrigin(originId);
-        request.setDestination(destinationId);
-        request.setAmount(amount);
-
-        when(accountRepository.getById(originId)).thenReturn(origin);
-        when(accountRepository.getById(destinationId)).thenReturn(destination);
-        when(accountRepository.updateAccount(origin)).thenReturn(null);
-        when(accountRepository.updateAccount(destination)).thenReturn(destination);
-
-        EventResponse response = transferOperation.execute(request);
-
-        assertNull(response);
-    }
-
-    @Test
     void testGetOperation_ReturnsTransferEnum() {
         assertEquals(Operation.TRANSFER, transferOperation.getOperation());
     }
