@@ -2,13 +2,13 @@ package com.matheusdelvalle.test.testecase.repositories;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
-import com.matheusdelvalle.test.testecase.interfaces.RepositoryInterface;
+import com.matheusdelvalle.test.testecase.interfaces.AccountRepository;
 import com.matheusdelvalle.test.testecase.models.Account;
 
-@Service
-public class AccountRepository implements RepositoryInterface {
+@Repository
+public class AccountMemoryRepository implements AccountRepository {
 
     private final ConcurrentHashMap<String, String> inMemoryStore = new ConcurrentHashMap<>();
 
@@ -28,12 +28,6 @@ public class AccountRepository implements RepositoryInterface {
     @Override
     public void reset() {
         inMemoryStore.clear();
-    }
-
-    @Override
-    public Long getNextId() {
-
-        return Long.valueOf(""+ inMemoryStore.size());
     }
 
     @Override

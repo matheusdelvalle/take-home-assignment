@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 import com.matheusdelvalle.test.testecase.DTO.EventRequest;
 import com.matheusdelvalle.test.testecase.DTO.EventResponse;
 import com.matheusdelvalle.test.testecase.models.Account;
-import com.matheusdelvalle.test.testecase.repositories.AccountRepository;
+import com.matheusdelvalle.test.testecase.repositories.AccountMemoryRepository;
 
 
 @Service
 public class AccountService {
 
     @Autowired
-    private AccountRepository accountRepository;
+    private AccountMemoryRepository accountRepository;
 
     @Autowired
     private List<AccountOperation> accountOperations;

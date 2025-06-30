@@ -1,7 +1,8 @@
 package com.matheusdelvalle.test.testecase.emums;
 
-public enum EventEnum {
+public enum Operation {
     deposit,
     withdraw,
-    transfer
+    transfer;
+
 }

@@ -5,15 +5,15 @@ import org.springframework.stereotype.Component;
 
 import com.matheusdelvalle.test.testecase.DTO.EventRequest;
 import com.matheusdelvalle.test.testecase.DTO.EventResponse;
-import com.matheusdelvalle.test.testecase.emums.EventEnum;
+import com.matheusdelvalle.test.testecase.emums.Operation;
 import com.matheusdelvalle.test.testecase.models.Account;
-import com.matheusdelvalle.test.testecase.repositories.AccountRepository;
+import com.matheusdelvalle.test.testecase.repositories.AccountMemoryRepository;
 
 @Component
 public class WithdrawOperation implements AccountOperation {
 
     @Autowired
-    private AccountRepository accountRepository;
+    private AccountMemoryRepository accountRepository;
 
     @Override
     public EventResponse execute(EventRequest eventRequest){
@@ -38,7 +38,7 @@ public class WithdrawOperation implements AccountOperation {
     }
 
     @Override
-    public EventEnum getOperation() {
-        return EventEnum.withdraw;
+    public Operation getOperation() {
+        return Operation.withdraw;
     }
 }

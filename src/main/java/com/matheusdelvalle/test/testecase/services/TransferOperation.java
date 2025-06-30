@@ -5,20 +5,20 @@ import org.springframework.stereotype.Component;
 
 import com.matheusdelvalle.test.testecase.DTO.EventRequest;
 import com.matheusdelvalle.test.testecase.DTO.EventResponse;
-import com.matheusdelvalle.test.testecase.emums.EventEnum;
+import com.matheusdelvalle.test.testecase.emums.Operation;
 import com.matheusdelvalle.test.testecase.models.Account;
-import com.matheusdelvalle.test.testecase.repositories.AccountRepository;
+import com.matheusdelvalle.test.testecase.repositories.AccountMemoryRepository;
 
 @Component
 public class TransferOperation implements AccountOperation {
 
 
-    @Autowired
-    private AccountRepository accountRepository;
+    @Autowired 
+    private AccountMemoryRepository accountRepository;
 
     @Override
     public EventResponse execute(EventRequest eventRequest) {
-         Account origin = accountRepository.getById(eventRequest.getOrigin());
+        Account origin = accountRepository.getById(eventRequest.getOrigin());
         Account destination = accountRepository.getById(eventRequest.getDestination());
 
         if (origin == null){
@@ -46,8 +46,8 @@ public class TransferOperation implements AccountOperation {
     }
 
     @Override
-    public EventEnum getOperation() {
-        return EventEnum.transfer;
+    public Operation getOperation() {
+        return Operation.transfer;
     }
     
 }

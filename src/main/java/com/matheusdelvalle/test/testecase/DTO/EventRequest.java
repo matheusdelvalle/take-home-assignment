@@ -1,10 +1,10 @@
 package com.matheusdelvalle.test.testecase.DTO;
 
-import com.matheusdelvalle.test.testecase.emums.EventEnum;
+import com.matheusdelvalle.test.testecase.emums.Operation;
 
 public class EventRequest {
 
-    private EventEnum type;
+    private Operation type;
     private int amount;
     private String destination;
     private String origin;
@@ -27,10 +27,10 @@ public class EventRequest {
     public void setAmount(int amount) {
         this.amount = amount;
     }
-    public EventEnum getType() {
+    public Operation getType() {
         return type;
     }
-    public void setType(EventEnum type) {
+    public void setType(Operation type) {
         this.type = type;
     }
     

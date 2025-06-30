@@ -1,10 +1,10 @@
 package com.matheusdelvalle.test.testecase.models;
 
-import com.matheusdelvalle.test.testecase.emums.EventEnum;
+import com.matheusdelvalle.test.testecase.emums.Operation;
 
 public class Event {
     
-private EventEnum type;
+private Operation type;
 private Float amount;
 private long origin;
 private long destination;
@@ -33,11 +33,11 @@ public void setOrigin(long origin) {
     this.origin = origin;
 }
 
-public EventEnum getType() {
+public Operation getType() {
     return type;
 }
 
-public void setType(EventEnum type) {
+public void setType(Operation type) {
     this.type = type;
 }
 
